@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
     LoginButton loginButton;
     TextView textView;
+    TextView textViewFacebookData;
     CallbackManager callbackManager;
 
     @Override
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
         loginButton = (LoginButton) findViewById(R.id.login_button);
         textView = (TextView) findViewById(R.id.textView);
+        textViewFacebookData = (TextView) findViewById(R.id.textViewFacebookData);
 
         callbackManager = CallbackManager.Factory.create();
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
@@ -68,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                         String uGender = bFacebookData.getString("gender");
                         String uBirthday = bFacebookData.getString("birthday");
 
-                        textView.setText("Name: " + uFirstName + " " + uLastName + "\n" +
+                        textViewFacebookData.setText("Name: " + uFirstName + " " + uLastName + "\n" +
                                 "Gender: " + uGender);
                     }
                 });
